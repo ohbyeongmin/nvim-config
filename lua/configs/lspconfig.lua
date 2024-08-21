@@ -4,7 +4,7 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "tsserver", "tailwindcss", "gopls" }
+local servers = { "html", "cssls", "tsserver", "tailwindcss", "gopls", "dockerls" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -37,4 +37,25 @@ lspconfig.gopls.setup {
       },
     },
   },
+}
+
+-- solidity
+lspconfig.solidity_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "solidity" },
+}
+
+-- json
+lspconfig.jsonls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "json", "jsonc" },
+}
+
+-- bash
+lspconfig.bashls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "sh", "aliasrc" },
 }
