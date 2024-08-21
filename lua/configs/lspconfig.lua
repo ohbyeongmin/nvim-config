@@ -44,6 +44,17 @@ lspconfig.solidity_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "solidity" },
+  root_dir = lspconfig.util.root_pattern(
+    "hardhat.config.js",
+    "hardhat.config.ts",
+    "foundry.toml",
+    "remappings.txt",
+    "truffle.js",
+    "truffle-config.js",
+    "ape-config.yaml",
+    ".git",
+    "package.json"
+  ),
 }
 
 -- json
