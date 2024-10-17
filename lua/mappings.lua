@@ -19,10 +19,10 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
-map("n", "sh", "<C-w>h")
-map("n", "sk", "<C-w>k")
-map("n", "sj", "<C-w>j")
-map("n", "sl", "<C-w>l")
+map("n", "sh", "<cmd>:vertical resize -5<CR>")
+map("n", "sk", "<cmd>:resize -5<CR>")
+map("n", "sj", "<cmd>:resize +5<CR>")
+map("n", "sl", "<cmd>:vertical resize +5<CR>")
 
 map("n", "ss", ":split<Return>")
 

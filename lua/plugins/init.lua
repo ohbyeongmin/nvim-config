@@ -8,6 +8,7 @@ return {
   },
   {
     "williamboman/mason.nvim",
+    lazy = false,
     opts = {
       ensure_installed = {
         "eslint-lsp",
@@ -22,6 +23,7 @@ return {
         "jsonls",
         "dockerls",
         "bashls",
+        "terraform-ls",
       },
     },
   },
@@ -51,6 +53,8 @@ return {
         "solidity",
         "gitignore",
         "toml",
+        "terraform",
+        "hcl",
       },
     },
   },
