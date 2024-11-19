@@ -4,7 +4,7 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "ts_ls", "tailwindcss", "gopls", "dockerls" }
+local servers = { "html", "cssls", "ts_ls", "tailwindcss", "gopls", "dockerls", "terraformls" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -69,4 +69,12 @@ lspconfig.bashls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "sh", "aliasrc" },
+}
+
+-- terraform
+lspconfig.terraformls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "terraform-ls", "serve" },
+  filetypes = { "terraform", "tf" }
 }
