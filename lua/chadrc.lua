@@ -5,7 +5,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "nightfox",
+  theme = "onedark",
   transparency = true,
   telescope = { style = "borderless" },
 

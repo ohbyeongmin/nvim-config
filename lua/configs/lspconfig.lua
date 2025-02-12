@@ -4,7 +4,8 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "ts_ls", "tailwindcss", "gopls", "dockerls", "terraformls" }
+local servers = { "html", "cssls", "ts_ls", "tailwindcss", "gopls", "dockerls", "terraformls", "helm_ls" }
+local util = require 'lspconfig.util'
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -77,4 +78,19 @@ lspconfig.terraformls.setup {
   capabilities = capabilities,
   cmd = { "terraform-ls", "serve" },
   filetypes = { "terraform", "tf" }
+}
+
+-- helm
+lspconfig.helm_ls.setup {
+  on_attach = on_attach,
+  capabilities = {
+    workspace = {
+      didChangeWatchedFiles = {
+        dynamicRegistration = true,
+      },
+    },
+  },
+  cmd = { "helm_ls", "serve" },
+  filetypes = { "helm", "helmfile" },
+  root_dir = util.root_pattern 'Chart.yaml'
 }
