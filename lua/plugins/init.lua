@@ -25,6 +25,7 @@ return {
         "bashls",
         "terraform-ls",
         "helm-ls",
+        "rust-analyzer",
       },
     },
   },
